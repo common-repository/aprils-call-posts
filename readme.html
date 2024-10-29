@@ -1,0 +1,89 @@
+<h3>Documentation, How To, &amp; Examples</h3>
+<h4>Shortcode Options - Retrieval</h4>
+
+These are the parameters you can set in the shortcode that affect the selection of posts from the database.
+
+<table class="form-table">
+	<tr><td><code>category</code></td><td>No default. Enter the slug of the category you'd like to use. Separate multiple category slugs with commas.</td></tr>
+	<tr><td><code>numberposts</code></td><td>Default is <code>1</code>. This is the number of posts that are called in. To have no limit, use <code>-1</code>.</td></tr>
+	<tr><td><code>orderby</code></td><td>Default is chosen in Global Settings. To override, add into shortcode. Options: <code>post_date</code> <code>rand</code>, <code>title</code>, <code>post__in</code>, etc.</td></tr>
+	<tr><td><code>order</code></td><td>Default is <code>ASC</code>. Only other option is <code>DESC</code>. Used only when <code>custom_field</code> option is in use.</td></tr>
+	<tr><td><code>ids</code></td><td>Comma separated, specific ID(s) of post(s) to include. If you want to not specify a category, you can put <code>category="byid"</code> in the shortcode and only the posts with ids specified will be included.</td></tr>
+	<tr><td><code>post_type</code></td><td>Default is <code>post</code>. The only other type you might want is a custom post_type.</td></tr>
+	<tr><td><code>category_tax</code></td><td>If you want to retrieve from a different taxonomy (other than category) you can enter specify it with this attribute. Note that this will only work with one item; you cannot enter multiple items separated by commas.</td></tr>
+	<tr><td><code>custom_field</code></td><td>This is used for sorting also. Default is chosen in Global Settings, if not empty. Otherwise, ignored.</td></tr>
+</table>
+
+<p>&nbsp;</p>
+
+<h4>Shortcode Options - Group Display</h4>
+
+These are the parameters you can set in the shortcode that affect the html and display of the posts that were retrieved.
+
+<table class="form-table">
+	<tr class="highlight"><td><code>template</code></td><td><strong>New as of Version 2.0!</strong><br />Specifies a template to use for displaying the retrieved posts using the ID number of the template (example below). <strong>Note!!!</strong> If you specify a template using this parameter, then <strong>all of the "Individual Item Display" parameters below will be ignored</strong> except for <code>thumbsize</code>.</td></tr>
+	<tr><td><code>heading</code></td><td>Default = <i>blank</i>. This heading will be shown before the resulting list of posts, but only if the list is not empty.</td></tr>
+	<tr><td><code>headingtag</code></td><td>Default = <code>h3</code>. Can be any HTML tag name (b, i, u, h4, etc)</td></tr>
+</table>
+
+<p>&nbsp;</p>
+
+<h4>Shortcode Options - Individual Item Display</h4>
+
+These are the parameters you can set in the shortcode that affect the html and display of the posts that were retrieved.
+
+<table class="form-table">
+	<tr><td><code>title</code></td><td>Default is set in the <b>"Global Settings"</b>. Can be any HTML tag name (b, i, u, h4, etc)</td></tr>
+	<tr><td><code>dateformat</code></td><td>Default is to not show the date. If you enter a dateformat for an instance of the shortcode (or above as a default for the whole site), the date will be shown preceding the title (if <code>content_type</code> is not <code>title</code>). <a href="http://php.net/manual/en/function.date.php" target="_blank">Formatting tips</a>.</td></tr>
+	<tr><td><code>class</code></td><td>Default = <code>post</code>. You can choose another class, for example, one controlled in your own theme's stylesheet, instead.</td></tr>
+	<tr><td><code>content_style</code></td><td>Default = option set above. To override the default, set to one of these other options in the shortcode: <code>excerpt</code>, <code>title</code>.</td></tr>
+
+	<tr><td><code>linktitle</code></td><td>Default = <code>true</code>. If you don't want the post titles to be links (in <code>excerpt</code> or <code>full</code> mode), set this to <code>false</code></td></tr>
+
+	<tr><td><code>separator</code></td><td>Default is a comma (<code>,</code>). Only used if <code>content_style</code> is set to <code>title</code>. Any text you enter for this will be placed after each linked title. <b>Special case:</b> If you use <code>&lt;list&gt;</code>, the linked post titles will actually be enclosed in a UL and LIs.</td></tr>
+
+	<tr><td><code>showthumb</code></td><td>Empty and ignored by default. If set to true, then the post's featured image is displayed before the post (You choose the featured image at the bottom right on the Edit Post page). The image has the class <code>attachment-thumbnail</code>, so you can style it.</td></tr>
+	<tr><td><code>thumbsize</code></td><td>If you set <code>showthumb</code> to true, you can also set the size. The default is <code>medium</code>. Other options include <code>thumbnail</code> or <code>large</code>. If you provide two numbers separated by a comma, those two numbers will be used as the width and height.</td></tr>
+	<tr id="morerow"><td><i>Want more?</i></td><td><i>To display the remaining, infrequently used, parameters, <a href="javascript:return false;" id="showmore">click here</a></i></td></tr>
+</table>
+
+<div class="hidden" id="morestuff">
+<table class="form-table">
+	<tr><td><code>sidebox</code></td><td>Empty and ignored by default. If set to <code>true</code>, puts the posts in a box floating at the right side of the page.</td></tr>
+	<tr><td><code>sideboxsize</code></td><td>Empty and ignored by default. Only used if sidebox is set to true. Then, default = <code>small</code> which translates to a width of 210px. Other options are: <code>medium</code> (300px), <code>large</code> (350px), <code>xlarge</code> (425px). Height of the sidebox is determined by the length of the content.</td></tr>
+
+	<tr><td><code>cols</code></td><td>Default = <code>1</code>. Only other option is <code>2</code>.</td></tr>
+	<tr><td><code>col_item_width</code></td><td>Empty and ignored by default. Only used if cols is set to <code>2</code>. Then the default = 320, which is a pixel measurement.</td></tr>
+	<tr><td><code>col_item_height</code></td><td>Empty and ignored by default. Only used if cols is set to <code>2</code>. Then the default = 260, which is a pixel measurement.</td></tr>
+
+	<tr><td><code>continue_text</code></td><td>What text would you like people to see that they click on to read the rest of the post? This applies to both <code>full</code> and <code>excerpt</code> modes. Default is <code>Read more &raquo;</code>. <b>Note:</b> If you're using a theme that customizes the excerpt more link, this may interfere. You may want to set this to blank (<code>""</code>)</td></tr>
+	<tr><td><code>pre_continue_text</code></td><td>If, when in <code>excerpt</code> mode, you'd like to prepend, say, an ellipsis (<code>...</code>) to your text before the <code>continue_text</code>, you can set it with this.</td></tr>
+</table>
+</div>
+
+<p>&nbsp;</p>
+
+<h4>Shortcode Examples</h4>
+
+<?php
+global $wpdb;
+
+$sql = "SELECT t.slug  FROM ".$wpdb->prefix."term_taxonomy tt, ".$wpdb->prefix."terms t WHERE tt.taxonomy LIKE 'category' AND tt.term_id=t.term_id AND tt.term_id=1 ORDER BY t.slug";
+$result = $wpdb->get_results($sql);
+foreach ($result as $i) $slugexample = $i->slug;
+?>
+
+<p>If you want to call the 5 most recent posts in the <b><?php echo ucfirst($slugexample) ?></b> category into a page, place this shortcode on the page:</p>
+<p><code>[ahs_callposts category="<?php echo $slugexample ?>" numberposts="5"]</code></p>
+
+<p>&nbsp;</p>
+
+<p>If you want to call all posts in the <b><?php echo ucfirst($slugexample) ?></b> category into a page but only list linkable titles with hard returns between them, place this shortcode on the page:</p>
+<p><code>[ahs_callposts category="<?php echo $slugexample ?>" numberposts="-1" content_style="title" separator="&lt;br /&gt;"]</code></p>
+
+<p>&nbsp;</p>
+
+<p>If you want to call the 10 most recent posts into a page using Template #3, place this shortcode on the page:</p>
+<p><code>[ahs_callposts numberposts="10" template="3"]</code></p>
+
+<p>&nbsp;</p>
